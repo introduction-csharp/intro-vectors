@@ -58,6 +58,28 @@ namespace Vectors.Lib
             return new Vector<T>(res);
         }
 
+        public void ScaleInPlace(T scalar)
+        {
+            for(int i = 0; i < Size; ++i)
+            {
+                dynamic value = _collection[i]; 
+                T valueT = value * scalar;
+                _collection[i] = valueT;
+
+            }
+        }
+        public Vector<T> ScaleNew(T scalar)
+        {
+            IList<T> res = new List<T>();
+            for (int i = 0; i < Size; ++i)
+            {
+                dynamic value = _collection[i];
+                T valueT = value * scalar;
+                res.Add(valueT);
+            }
+            return new Vector<T>(res);
+        }
+
         #region IEnumerable<T>
         public IEnumerator<T> GetEnumerator()
         {

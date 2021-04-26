@@ -44,5 +44,23 @@ namespace Vectors.Test
             Assert.IsTrue(r.Equals(v1.Add(v2)));
         }
 
+        [TestMethod]
+        public void TestScaleInPlace()
+        {
+            Vector<int> v1 = new Vector<int>(new List<int> { 1, 2, 3, -7 });
+            v1.ScaleInPlace(3);
+            Vector<int> expected = new Vector<int>(new List<int> { 3, 6, 9, -21 });
+            Assert.IsTrue(expected.Equals(v1));
+        }
+
+        [TestMethod]
+        public void TestScaleNew()
+        {
+            Vector<int> v1 = new Vector<int>(new List<int> { 1, 2, 3, -7 });
+            Vector<int> v2 = v1.ScaleNew(3);
+            Vector<int> expected = new Vector<int>(new List<int> { 3, 6, 9, -21 });
+            Assert.IsTrue(expected.Equals(v2));
+        }
+
     }
 }
